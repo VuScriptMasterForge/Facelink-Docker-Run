@@ -11,6 +11,13 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./facelink_db.sql:/docker-entrypoint-initdb.d/facelink_db.sql
+    entrypoint: >
+      bash -c "rm -rf /var/lib/mysql/* && docker-entrypoint.sh --initialize-insecure"
+    command: >
+      bash -c "docker-entrypoint.sh mysqld"
+
+
+    
   springboot:
     build: .
     image: nonghoangvu/facelink:V1.3.0
