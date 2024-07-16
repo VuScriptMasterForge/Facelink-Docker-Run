@@ -13,7 +13,7 @@ services:
       - ./facelink_db.sql:/docker-entrypoint-initdb.d/facelink_db.sql
   springboot:
     build: .
-    image: nonghoangvu/facelink:V1.3.0
+    image: nonghoangvu/facelink:V1.4.0
     container_name: facelink
     environment:
       MYSQL_HOST: mysql_facelink
